@@ -3,10 +3,9 @@ package idea.scr.familyTree1;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
-public class Human implements Serializable{
+public class Human implements Serializable, Iterable{
     private String name;            // имя
     private Gender gender;          // признаки пола
     private LocalDate ateOfBirth;   // дата рождения
@@ -138,4 +137,41 @@ public class Human implements Serializable{
         return human.getName().equals(getName());
     }
 
+    @Override
+    public void sortedNamePerson(ArrayList<Human> listHuman) {
+        int sizeList = listHuman.size();
+        for (int i = 0; i < sizeList - 1; i++) {
+            for (int j = 0; j < sizeList - i - 1; j++) {
+                Human h1 = listHuman.get(j);
+                Human h2 = listHuman.get(j + 1);
+                if (h1.getName().compareToIgnoreCase(h2.getName()) > 0) {
+                    listHuman.set(j, h2);
+                    listHuman.set(j + 1, h1);
+                }
+            }
+        }
+        System.out.println("Отсортированный список по имени:");
+        for (Human obj : listHuman) {
+            System.out.println(obj.getName() + " дата рождения:  " + obj.ateOfBirth());
+        }
+    }
+
+    @Override
+    public void sortedDatePerson(ArrayList<Human> listHuman) {
+        int sizeList = listHuman.size();
+        for (int i = 0; i < sizeList - 1; i++) {
+            for (int j = 0; j < sizeList - i - 1; j++) {
+                Human h1 = listHuman.get(j);
+                Human h2 = listHuman.get(j + 1);
+                if (h1.ateOfBirth().compareTo(h2.ateOfBirth()) > 0) {
+                    listHuman.set(j, h2);
+                    listHuman.set(j + 1, h1);
+                }
+            }
+        }
+        System.out.println("Отсортированный список по дате рождения:");
+        for (Human obj : listHuman) {
+            System.out.println(obj.getName() + " дата рождения:  " + obj.ateOfBirth());
+        }
+    }
 }
