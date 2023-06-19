@@ -1,6 +1,6 @@
-package idea.scr.familyTree1;
+package idea.scr.OOP;
 
 public enum Gender {
-    Male, Female;
+    Male, Female;   // Мужчина, Женщина
 }
 

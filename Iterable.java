@@ -1,4 +1,6 @@
-package idea.scr.familyTree1;
+package idea.scr.OOP;
+
+import idea.scr.familyTree1.Human;
 
 import java.util.ArrayList;
 
